@@ -94,7 +94,7 @@ class ElasticsearchSnapshotManager:
                 "settings": {
                     "bucket":                       self.bucket,
                     "region":                       self.region,
-                    "base_path":                    '/' + self.prefix,
+                    "base_path":                    self.prefix,
                     "max_restore_bytes_per_sec":    '200mb',
                     "max_snapshot_bytes_per_sec":   '200mb'
                 }
