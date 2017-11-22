@@ -1,0 +1,7 @@
+#!/bin/bash
+
+$LOCALIP ${region}-elasticsearch-backup-${envlabel} ${region}
+
+/usr/local/bin/es_backup.py --eshost $1 --bucket $2 --prefix "" --esproto http --repository chillipharm-es --region $3 --master --wait
+
+
