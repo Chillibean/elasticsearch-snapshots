@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import time, logging, argparse, json, sys, socket, datetime
+import time, logging, argparse, json, sys, socket, datetime, logging.handlers
 from elasticsearch import Elasticsearch, exceptions
 
 logging.basicConfig(level=logging.INFO)

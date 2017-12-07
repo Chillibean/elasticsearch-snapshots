@@ -1,4 +1,4 @@
-import time, logging, argparse, json, sys
+import time, logging, argparse, json, sys, logging.handlers
 from elasticsearch import Elasticsearch, exceptions
 
 MAX_ATTEMPTS = 10
