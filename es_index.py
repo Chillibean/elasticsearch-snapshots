@@ -8,7 +8,7 @@ logger = logging.getLogger('elasticsearch')
 
 class ElasticsearchIndexManager:
     def __init__(self, options):
-        syslog = logging.SysLogHandler(address='/dev/log')
+        syslog = logging.handlers.SysLogHandler(address='/dev/log')
         logger.addHandler(syslog)
 
         self.host = options.eshost

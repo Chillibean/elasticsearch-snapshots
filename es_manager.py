@@ -27,7 +27,7 @@ def get_parser(description):
 
 class ElasticsearchSnapshotManager:
     def __init__(self, options):
-        syslog = logging.SysLogHandler(address='/dev/log')
+        syslog = logging.handlers.SysLogHandler(address='/dev/log')
         logger.addHandler(syslog)
 
         self.repository = options.repository
