@@ -8,10 +8,8 @@ logger = logging.getLogger('elasticsearch')
 
 class ElasticsearchIndexManager:
     def __init__(self, options):
-        console = logging.StreamHandler()
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        console.setFormatter(formatter)
-        logger.addHandler(console)
+        syslog = logging.SysLogHandler(address='/dev/log')
+        logger.addHandler(syslog)
 
         self.host = options.eshost
         self.port = options.esport
