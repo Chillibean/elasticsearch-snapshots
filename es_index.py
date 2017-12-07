@@ -64,11 +64,11 @@ def trim_indices(options):
     for index in indices:
         age = datetime.datetime.now() - datetime.datetime.fromtimestamp(float(indices[index]['settings']['index']['creation_date'])/1000.0)
         if age > days:
-            print index,datetime.datetime.fromtimestamp(float(indices[index]['settings']['index']['creation_date'])/1000.0),age
+            logger.info( index + " " + str(datetime.datetime.fromtimestamp(float(indices[index]['settings']['index']['creation_date'])/1000.0)) + " " + str(age))
             esm.es.indices.close(index=index)
-            print index, " closed"
+            logger.info( index + " closed")
             esm.es.indices.delete(index=index)
-            print index, " deleted"
+            logger.info( index + " deleted")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="this script will trim indices older than a number of days")
