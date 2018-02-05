@@ -1,4 +1,4 @@
-import time, logging, argparse, json, sys
+import time, logging, argparse, json, sys, logging.handlers
 from elasticsearch import Elasticsearch, exceptions
 
 MAX_ATTEMPTS = 10
@@ -27,10 +27,8 @@ def get_parser(description):
 
 class ElasticsearchSnapshotManager:
     def __init__(self, options):
-        console = logging.StreamHandler()
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        console.setFormatter(formatter)
-        logger.addHandler(console)
+        syslog = logging.handlers.SysLogHandler(address='/dev/log')
+        logger.addHandler(syslog)
 
         self.repository = options.repository
         self.bucket = options.bucket

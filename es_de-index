@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ESHOST=$1
+shift
+DAYS=$1
+shift
+
+while (( "$#" )); do
+    /usr/local/bin/es_index.py --eshost $ESHOST --esproto http --master --wait --indexage $DAYS --index $1
+    shift
+done
+
