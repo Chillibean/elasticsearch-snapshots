@@ -18,6 +18,8 @@ def take_snapshot(options):
         if myip != mip:
             logger.info("Not running because we're not the master")
             sys.exit()
+
+    logger.info("Running because we're the master")
         
     
     sh = esm.sh

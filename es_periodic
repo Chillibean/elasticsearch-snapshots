@@ -1,5 +1,5 @@
 #!/bin/bash
 
-/usr/local/bin/es_backup.py --eshost $1 --bucket $2 --prefix "" --esproto http --repository chillipharm-es --region $3 --master --wait --keep 1440
+/usr/local/bin/es_backup.py --eshost $1 --bucket $2 --prefix "" --esproto http --repository chillipharm-es --region $3 --master --wait --keep $4
 
 
