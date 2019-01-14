@@ -3,7 +3,7 @@ from elasticsearch import Elasticsearch, exceptions
 
 MAX_ATTEMPTS = 10
 
-logging.basicConfig(level=logging.ERROR)
+#logging.basicConfig(level=logging.ERROR)
 logger = logging.getLogger('elasticsearch')
 
 def get_parser(description):
