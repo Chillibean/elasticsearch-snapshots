@@ -39,8 +39,9 @@ def take_snapshot(options):
         # Housekeeping - delete old snapshots
         snapshots = sh.get(repository=options.repository, snapshot="_all", request_timeout=120)['snapshots']
         num_snaps = len(snapshots)
-        if num_snaps > options.keep:
-            up_to = num_snaps - options.keep
+        keep = int(options.keep)
+        if num_snaps > keep:
+            up_to = num_snaps - keep
             logger.info('TOTAL: %d - Will delete 1 -> %d' % (num_snaps, up_to + 1))
             for snap in snapshots[0:up_to]:
                 sh.delete(repository=options.repository, snapshot=snap['snapshot'], request_timeout=3600)
